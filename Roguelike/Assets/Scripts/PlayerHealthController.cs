@@ -9,6 +9,9 @@ public class PlayerHealthController : MonoBehaviour
 
     [SerializeField] int currentHealth;
     [SerializeField] int maxHealth;
+    [SerializeField] float damageInvincibilityTime = 1f;
+    private float invincibilityCount;
+
 
 
     private void Awake()
@@ -25,6 +28,21 @@ public class PlayerHealthController : MonoBehaviour
         UIController.instance.healthText.text = currentHealth.ToString() + " / " +  maxHealth.ToString();
     }
 
+    private void Update()
+    {
+        // invic counter will be subtracting every frame by Time.deltaTime which is like 0.2f i believe?
+        if(invincibilityCount > 0)
+        {
+            invincibilityCount -= Time.deltaTime;
+            
+            // changes character alpha back up to show no longer invincible
+            if(invincibilityCount <= 0)
+            {
+                PlayerController.instance.bodySpriteRenderer.color = new Color(PlayerController.instance.bodySpriteRenderer.color.r, PlayerController.instance.bodySpriteRenderer.color.g, PlayerController.instance.bodySpriteRenderer.color.b, 255f);
+            }
+        }
+    }
+
 
     void UpdateHealthUI()
     {
@@ -36,13 +54,24 @@ public class PlayerHealthController : MonoBehaviour
 
     public void DamagePlayer()
     {
-        currentHealth--;
-        if (currentHealth <= 0)
+        // if invinc count <= 0 then we can take damage
+        if (invincibilityCount <= 0)
         {
-            PlayerController.instance.gameObject.SetActive(false);
+            currentHealth--;
+            // reset invinc count so we dont take multiple damage fast
+            invincibilityCount = damageInvincibilityTime;
 
+            // changed player alpha to less visible to tell user they are invincible from enemy shots for a little time
+            PlayerController.instance.bodySpriteRenderer.color = new Color(PlayerController.instance.bodySpriteRenderer.color.r, PlayerController.instance.bodySpriteRenderer.color.g, PlayerController.instance.bodySpriteRenderer.color.b, 0.5f);
+
+            if (currentHealth <= 0)
+            {
+                PlayerController.instance.gameObject.SetActive(false);
+                UIController.instance.deathScreen.SetActive(true);
+
+            }
+            UpdateHealthUI();
         }
-        UpdateHealthUI();
     }
  
 

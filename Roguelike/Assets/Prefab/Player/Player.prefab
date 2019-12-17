@@ -58,6 +58,7 @@ MonoBehaviour:
   bulletToFire: {fileID: 3707839623173914652, guid: c53c6394084d284499f3fb783d23aceb,
     type: 3}
   firePoint: {fileID: 875682177485287504}
+  bodySpriteRenderer: {fileID: 875682178910372027}
 --- !u!58 &875682177484170840
 CircleCollider2D:
   m_ObjectHideFlags: 0

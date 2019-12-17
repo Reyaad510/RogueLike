@@ -41,10 +41,16 @@ public class EnemyController : MonoBehaviour
   
     void Update()
     {
-        if (enemyBody.isVisible)
+        // says if enemy is visible in screen and if player is SetActive(true) then do this. If player SetActive(false) then dont run
+        if (enemyBody.isVisible && PlayerController.instance.gameObject.activeInHierarchy)
         {
             EnemyChaseIfPlayerInRange();
             ShouldShoot();
+        }
+        else
+        {
+            // prevents enemy from moving when player is dead or not visible
+            enemyRigidBody.velocity = Vector2.zero;
         }
     }
 

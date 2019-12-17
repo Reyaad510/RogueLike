@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform gunArm;
     [SerializeField] GameObject bulletToFire;
     [SerializeField] Transform firePoint;
+    public SpriteRenderer bodySpriteRenderer;
 
 
 
