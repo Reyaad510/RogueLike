@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-
-    [SerializeField] float enemyMoveSpeed = 3f;
-    [SerializeField] float rangeToChasePlayer = 7f;
+    [Header("Enemy Numbers")]
+    [SerializeField] float enemyMoveSpeed;
+    [SerializeField] float rangeToChasePlayer;
     [SerializeField] Vector3 moveDirection;
+    [SerializeField] int enemyHealth = 150;
 
 
 
@@ -70,6 +71,24 @@ public class EnemyController : MonoBehaviour
         {
             enemyAnimator.SetBool("isChasing", false);
         }
+    }
+
+
+
+    public void DamageEnemy(int damage)
+    {
+        enemyHealth -= damage;
+
+        if(enemyHealth <= 0)
+        {
+            EnemyDie();
+        }
+    }
+
+
+    private void EnemyDie()
+    {
+        Destroy(gameObject);
     }
 
 

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    [Header("Bullet Numbers")]
+    [SerializeField] float bulletSpeed;
+    [SerializeField] int bulletDamage;
 
-    [SerializeField] float bulletSpeed = 20f;
+    [Header("Objects")]
     [SerializeField] GameObject impactEffect;
 
     // cached
@@ -29,7 +32,14 @@ public class PlayerBullet : MonoBehaviour
         // particle effect will be destroyed by going clicking on it in unity and look for "Stop Action" and choose Destroy
         Instantiate(impactEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+
+
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<EnemyController>().DamageEnemy(bulletDamage);
+        }
     }
+
 
 
     // This is an actual Unity Method

@@ -16,13 +16,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] Transform gunArm;
-    [SerializeField] Animator playerAnimator;
     [SerializeField] GameObject bulletToFire;
     [SerializeField] Transform firePoint;
-    
+
 
 
     // cached component references
+    Animator playerAnimator;
     Rigidbody2D myRigidBody;
     Camera theCam;
 
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        playerAnimator = GetComponent<Animator>();
         myRigidBody = GetComponent<Rigidbody2D>();
         theCam = Camera.main;
     }
