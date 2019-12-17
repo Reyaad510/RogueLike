@@ -12,20 +12,22 @@ public class PlayerController : MonoBehaviour
 
     // cached component references
     Rigidbody2D myRigidBody;
+    Camera theCam;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+        theCam = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
         Run();
-        WeaponPosition();
+        WeaponAim();
     }
 
     private void Run()
@@ -37,10 +39,25 @@ public class PlayerController : MonoBehaviour
         myRigidBody.velocity = playerVelocity;
     }
 
-    private void WeaponPosition()
+    private void WeaponAim()
     {
+        // getting mouse position
         Vector3 mousePos = Input.mousePosition;
-        Vector3 screenPoint = Camera.main.WorldToScreenPoint(transform.localPosition);
+        // getting worldToScreen Point position
+        Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
+
+        // Flip sprite according to mousePosition in relation of player
+        if (mousePos.x < screenPoint.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+            gunArm.localScale = new Vector3(-1f, -1f, 1f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            gunArm.localScale = new Vector3(1f, 1f, 1f);
+        }
+
 
         // rotate gun hand
         Vector2 offset = new Vector2(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
