@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y  = Input.GetAxisRaw("Vertical");
 
+        // Normalize makes when player moves diagonal direction that they dont move faster than when they move x or y alone.
+        moveInput.Normalize();
+
         Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
         myRigidBody.velocity = playerVelocity;
 
