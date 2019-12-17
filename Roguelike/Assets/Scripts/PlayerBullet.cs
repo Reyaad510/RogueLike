@@ -6,6 +6,7 @@ public class PlayerBullet : MonoBehaviour
 {
 
     [SerializeField] float bulletSpeed = 7.5f;
+    [SerializeField] GameObject impactEffect;
 
     // cached
     Rigidbody2D bulletRigidBody;
@@ -24,6 +25,16 @@ public class PlayerBullet : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D other)
+    {
+        // particle effect will be destroyed by going clicking on it in unity and look for "Stop Action" and choose Destroy
+        Instantiate(impactEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
+
+    // This is an actual Unity Method
+    // Says once bullet is offscreen then will destroy them
+    private void OnBecameInvisible()
     {
         Destroy(gameObject);
     }
