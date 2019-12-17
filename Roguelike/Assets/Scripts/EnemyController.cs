@@ -12,6 +12,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] int enemyHealth = 150;
 
 
+    [Header("Objects")]
+    [SerializeField] GameObject[] deathSplatter;
+
+
 
     // cache
     Rigidbody2D enemyRigidBody;
@@ -89,6 +93,12 @@ public class EnemyController : MonoBehaviour
     private void EnemyDie()
     {
         Destroy(gameObject);
+
+        int selectedSplatter = Random.Range(0, deathSplatter.Length);
+
+        int rotation = Random.Range(0, 4);
+
+        Instantiate(deathSplatter[selectedSplatter], transform.position, Quaternion.Euler(0f,0f, rotation * 90f));
     }
 
 
