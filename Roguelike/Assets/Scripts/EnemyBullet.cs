@@ -27,10 +27,12 @@ public class EnemyBullet : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-
+           
         }
 
         Destroy(gameObject);
+
+
     }
 
 

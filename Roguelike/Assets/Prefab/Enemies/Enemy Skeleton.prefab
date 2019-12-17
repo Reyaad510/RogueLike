@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2458618282992227529}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7152895024973572332}
   - component: {fileID: 7152895024973572322}
   - component: {fileID: 7152895024973572334}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7152895025308029164}
   - component: {fileID: 7152895025308029165}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
