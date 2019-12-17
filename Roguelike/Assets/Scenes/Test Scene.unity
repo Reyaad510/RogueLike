@@ -1518,8 +1518,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 875682177484170841, guid: dc00ebaf60a158446a90ba8ee5565354,
         type: 3}
-      propertyPath: dashSpeed
-      value: 12
+      propertyPath: dashLength
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 875682177484170841, guid: dc00ebaf60a158446a90ba8ee5565354,
+        type: 3}
+      propertyPath: dashCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 875682178910372024, guid: dc00ebaf60a158446a90ba8ee5565354,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 875682178910372024, guid: dc00ebaf60a158446a90ba8ee5565354,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 875682178910372024, guid: dc00ebaf60a158446a90ba8ee5565354,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 875682178910372024, guid: dc00ebaf60a158446a90ba8ee5565354,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 875682178910372024, guid: dc00ebaf60a158446a90ba8ee5565354,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc00ebaf60a158446a90ba8ee5565354, type: 3}

@@ -54,6 +54,13 @@ MonoBehaviour:
   timeBetweenShots: 0.2
   shotCounter: 0
   moveInput: {x: 0, y: 0}
+  activeMoveSpeed: 0
+  dashSpeed: 11
+  dashLength: 0.5
+  dashCooldown: 1
+  dashCounter: 0
+  dashCoolCounter: 0
+  dashInvincibility: 0.5
   gunArm: {fileID: 875682179448163459}
   bulletToFire: {fileID: 3707839623173914652, guid: c53c6394084d284499f3fb783d23aceb,
     type: 3}
