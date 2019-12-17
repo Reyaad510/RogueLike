@@ -13,6 +13,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float timeBetweenShots = 0.2f;
     [SerializeField] float shotCounter;
     [SerializeField] Vector2 moveInput;
+    [SerializeField] float activeMoveSpeed;
+
+    [Header("Dash")]
+    [SerializeField] float dashSpeed = 8f;
+    [SerializeField] float dashLength = 0.5f;
+    [SerializeField] float dashCooldown = 1f;
+    [SerializeField] float dashCounter;
+    [SerializeField] float dashCoolCounter;
+    [SerializeField] float dashInvincibility = 0.5f;
 
     [Header("Objects")]
     [SerializeField] Transform gunArm;
@@ -40,6 +49,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         myRigidBody = GetComponent<Rigidbody2D>();
         theCam = Camera.main;
+        activeMoveSpeed = moveSpeed;
     }
 
     void Update()
@@ -47,6 +57,7 @@ public class PlayerController : MonoBehaviour
         Run();
         WeaponAim();
         FireBullet();
+        Dash();
     }
 
 
@@ -61,7 +72,7 @@ public class PlayerController : MonoBehaviour
         // Normalize makes when player moves diagonal direction that they dont move faster than when they move x or y alone.
         moveInput.Normalize();
 
-        Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
+        Vector2 playerVelocity = new Vector2(moveInput.x * activeMoveSpeed, moveInput.y * activeMoveSpeed);
         myRigidBody.velocity = playerVelocity;
 
         PlayerRunAnimation();
@@ -126,5 +137,33 @@ public class PlayerController : MonoBehaviour
                 shotCounter = timeBetweenShots;
             }
         }
+    }
+
+    private void Dash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (dashCoolCounter <= 0 && dashCounter <= 0)
+            {
+                activeMoveSpeed = dashSpeed;
+                dashCounter = dashLength;
+            }
+        }
+
+        if(dashCounter > 0)
+        {
+            dashCounter -= Time.deltaTime;
+            if(dashCounter <= 0)
+            {
+                activeMoveSpeed = moveSpeed;
+                dashCoolCounter = dashCooldown;
+            }
+        }
+
+        if(dashCoolCounter > 0)
+        {
+            dashCoolCounter -= Time.deltaTime;
+        }
+
     }
 }
