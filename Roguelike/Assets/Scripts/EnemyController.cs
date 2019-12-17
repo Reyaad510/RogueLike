@@ -10,12 +10,17 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float rangeToChasePlayer;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] int enemyHealth = 150;
-
+    [SerializeField] float fireRate;
+    private float fireCounter;
 
     [Header("Objects")]
     [SerializeField] GameObject[] deathSplatter;
     [SerializeField] GameObject hitEffect;
+    [SerializeField] GameObject enemyBullet;
+    [SerializeField] Transform firePoint;
 
+    [Header("Boolean")]
+    [SerializeField] bool shouldShoot;
 
 
     // cache
@@ -35,6 +40,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         EnemyChaseIfPlayerInRange();
+        ShouldShoot();
 
     }
 
@@ -77,6 +83,23 @@ public class EnemyController : MonoBehaviour
             enemyAnimator.SetBool("isChasing", false);
         }
     }
+
+
+
+    private void ShouldShoot()
+    {
+        if (shouldShoot)
+        {
+            fireCounter -= Time.deltaTime;
+
+            if(fireCounter <= 0)
+            {
+                fireCounter = fireRate;
+                Instantiate(enemyBullet, firePoint.position, firePoint.rotation);
+            }
+        }
+    }
+
 
 
 
