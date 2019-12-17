@@ -30,17 +30,7 @@ public class PlayerHealthController : MonoBehaviour
 
     private void Update()
     {
-        // invic counter will be subtracting every frame by Time.deltaTime which is like 0.2f i believe?
-        if(invincibilityCount > 0)
-        {
-            invincibilityCount -= Time.deltaTime;
-            
-            // changes character alpha back up to show no longer invincible
-            if(invincibilityCount <= 0)
-            {
-                PlayerController.instance.bodySpriteRenderer.color = new Color(PlayerController.instance.bodySpriteRenderer.color.r, PlayerController.instance.bodySpriteRenderer.color.g, PlayerController.instance.bodySpriteRenderer.color.b, 255f);
-            }
-        }
+        PlayerInvincibility();
     }
 
 
@@ -50,6 +40,29 @@ public class PlayerHealthController : MonoBehaviour
         UIController.instance.healthText.text = currentHealth.ToString() + " / " + maxHealth.ToString();
     }
 
+     void PlayerInvincibility()
+    {
+        // invic counter will be subtracting every frame by Time.deltaTime which is like 0.2f i believe?
+        if (invincibilityCount > 0)
+        {
+            invincibilityCount -= Time.deltaTime;
+
+            // changes character alpha back up to show no longer invincible
+            if (invincibilityCount <= 0)
+            {
+                PlayerController.instance.bodySpriteRenderer.color = new Color(PlayerController.instance.bodySpriteRenderer.color.r, PlayerController.instance.bodySpriteRenderer.color.g, PlayerController.instance.bodySpriteRenderer.color.b, 255f);
+            }
+        }
+    }
+
+
+
+    public void DashInvincible(float length)
+    {
+        invincibilityCount = length;
+        PlayerController.instance.bodySpriteRenderer.color = new Color(PlayerController.instance.bodySpriteRenderer.color.r, PlayerController.instance.bodySpriteRenderer.color.g, PlayerController.instance.bodySpriteRenderer.color.b, 255f);
+
+    }
 
 
     public void DamagePlayer()

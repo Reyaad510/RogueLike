@@ -148,6 +148,8 @@ public class PlayerController : MonoBehaviour
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
                 playerAnimator.SetTrigger("Dash");
+                PlayerHealthController.instance.DashInvincible(dashInvincibility);
+             
             }
         }
 
