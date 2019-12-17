@@ -19,12 +19,17 @@ public class PlayerHealthController : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        // grabbing healthSlider from UIcontroller script and setting the slider values in relation to player health
+        UIController.instance.healthSlider.maxValue = maxHealth;
+        UIController.instance.healthSlider.value = currentHealth;
+        UIController.instance.healthText.text = currentHealth.ToString() + " / " +  maxHealth.ToString();
     }
 
 
-    void Update()
+    void UpdateHealthUI()
     {
-        
+        UIController.instance.healthSlider.value = currentHealth;
+        UIController.instance.healthText.text = currentHealth.ToString() + " / " + maxHealth.ToString();
     }
 
 
@@ -37,6 +42,7 @@ public class PlayerHealthController : MonoBehaviour
             PlayerController.instance.gameObject.SetActive(false);
 
         }
+        UpdateHealthUI();
     }
  
 
