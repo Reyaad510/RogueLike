@@ -103,6 +103,8 @@ MonoBehaviour:
   - {fileID: 7116623598496781043, guid: 03e45ee7ca131854e8dc2a9d7d751d69, type: 3}
   - {fileID: 2339835108423375622, guid: 43bbd2f532413734aafd4756435b8e82, type: 3}
   - {fileID: 4939588399143310325, guid: 23b6647f9afa3cb4c895cb85a35029d3, type: 3}
+  hitEffect: {fileID: 2150550041400740670, guid: c7996317ca32be64c924bcbec9dd9be7,
+    type: 3}
 --- !u!95 &7152895024973572334
 Animator:
   serializedVersion: 3

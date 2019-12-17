@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] GameObject[] deathSplatter;
+    [SerializeField] GameObject hitEffect;
 
 
 
@@ -83,6 +84,8 @@ public class EnemyController : MonoBehaviour
     {
         enemyHealth -= damage;
 
+        Instantiate(hitEffect, transform.position, transform.rotation);
+
         if(enemyHealth <= 0)
         {
             EnemyDie();
@@ -98,7 +101,9 @@ public class EnemyController : MonoBehaviour
 
         int rotation = Random.Range(0, 4);
 
-        Instantiate(deathSplatter[selectedSplatter], transform.position, Quaternion.Euler(0f,0f, rotation * 90f));
+        var splat = Instantiate(deathSplatter[selectedSplatter], transform.position, Quaternion.Euler(0f,0f, rotation * 90f));
+        Destroy(splat, 2f);
+        
     }
 
 
