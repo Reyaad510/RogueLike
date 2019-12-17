@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = 6f;
     [SerializeField] Transform gunArm;
     [SerializeField] Animator playerAnimator;
+    [SerializeField] GameObject bulletToFire;
+    [SerializeField] Transform firePoint;
     private Vector2 moveInput;
 
 
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         Run();
         WeaponAim();
+        FireBullet();
     }
 
     private void Run()
@@ -76,5 +79,15 @@ public class PlayerController : MonoBehaviour
         float angleOfWeaponAndMouse = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
         // Quaternion.Euler() converts Rotation into a vector3. In Unity if you debug you will see rotation has other values and vector3 alone wouldnt work so have to do it like this
         gunArm.rotation = Quaternion.Euler(0, 0, angleOfWeaponAndMouse);
+    }
+
+
+    private void FireBullet()
+    {
+        if (Input.GetMouseButtonDown(0)) {
+
+            Instantiate(bulletToFire, firePoint.transform.position, firePoint.rotation);
+
+        }
     }
 }
