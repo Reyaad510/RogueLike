@@ -19,9 +19,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float dashSpeed = 8f;
     [SerializeField] float dashLength = 0.5f;
     [SerializeField] float dashCooldown = 1f;
-    [SerializeField] float dashCounter;
-    [SerializeField] float dashCoolCounter;
     [SerializeField] float dashInvincibility = 0.5f;
+    private float dashCoolCounter;
+    [HideInInspector]
+    public float dashCounter;
 
     [Header("Objects")]
     [SerializeField] Transform gunArm;
