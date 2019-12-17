@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] Vector3 moveDirection;
     [SerializeField] int enemyHealth = 150;
     [SerializeField] float fireRate;
+    [SerializeField] float shootRange;
     private float fireCounter;
 
     [Header("Objects")]
@@ -18,6 +19,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject hitEffect;
     [SerializeField] GameObject enemyBullet;
     [SerializeField] Transform firePoint;
+    [SerializeField] SpriteRenderer enemyBody;
 
     [Header("Boolean")]
     [SerializeField] bool shouldShoot;
@@ -39,9 +41,11 @@ public class EnemyController : MonoBehaviour
   
     void Update()
     {
-        EnemyChaseIfPlayerInRange();
-        ShouldShoot();
-
+        if (enemyBody.isVisible)
+        {
+            EnemyChaseIfPlayerInRange();
+            ShouldShoot();
+        }
     }
 
 
@@ -88,7 +92,8 @@ public class EnemyController : MonoBehaviour
 
     private void ShouldShoot()
     {
-        if (shouldShoot)
+        // Enemy will fire bullet if within range
+        if (shouldShoot && Vector3.Distance(transform.position,PlayerController.instance.transform.position) < shootRange)
         {
             fireCounter -= Time.deltaTime;
 

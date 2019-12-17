@@ -130,6 +130,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   enemyHealth: 150
   fireRate: 1
+  shootRange: 10
   deathSplatter:
   - {fileID: 8144132975787039595, guid: 12713f7db95177f42b365d557735ef8e, type: 3}
   - {fileID: 7116623598496781043, guid: 03e45ee7ca131854e8dc2a9d7d751d69, type: 3}
@@ -140,6 +141,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 1635006067943885957, guid: fb6f8a12ad683a246b3b096a5eb16880,
     type: 3}
   firePoint: {fileID: 2458618282992227529}
+  enemyBody: {fileID: 7152895025308029165}
   shouldShoot: 1
 --- !u!95 &7152895024973572334
 Animator:
