@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     // Config
     [SerializeField] float moveSpeed = 6f;
     [SerializeField] Transform gunArm;
+    [SerializeField] Animator playerAnimator;
     private Vector2 moveInput;
 
 
@@ -37,6 +38,14 @@ public class PlayerController : MonoBehaviour
 
         Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
         myRigidBody.velocity = playerVelocity;
+
+        // Saying if player is moving x or y direction to allow walk animation to happen
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x)  > Mathf.Epsilon;
+        bool playerHasVerticalSpeed = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
+        playerAnimator.SetBool("isWalking", playerHasHorizontalSpeed || playerHasVerticalSpeed);
+     
+
+
     }
 
     private void WeaponAim()
