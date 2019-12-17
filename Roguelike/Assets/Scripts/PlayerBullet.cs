@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
 
-    [SerializeField] float bulletSpeed = 7.5f;
+    [SerializeField] float bulletSpeed = 20f;
     [SerializeField] GameObject impactEffect;
 
     // cached

@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // This means every version of PlayerController that exists in unity will all be set to equal the same instance
+    public static PlayerController instance;
+
     // Config
     [Header("Numbers")]
     [SerializeField] float moveSpeed = 6f;
     [SerializeField] float timeBetweenShots = 0.2f;
     [SerializeField] float shotCounter;
+    [SerializeField] Vector2 moveInput;
 
     [Header("Objects")]
     [SerializeField] Transform gunArm;
     [SerializeField] Animator playerAnimator;
     [SerializeField] GameObject bulletToFire;
     [SerializeField] Transform firePoint;
-    private Vector2 moveInput;
+    
 
 
     // cached component references
@@ -23,8 +27,12 @@ public class PlayerController : MonoBehaviour
     Camera theCam;
 
 
-
-
+    // instance = this; says PlayerController that is assigned to instance is "this" one. Set for all playercontrollers. 17. Creating & MovingEnemy
+    // This only works for this because player is single. Will never have more than one player
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -54,13 +62,19 @@ public class PlayerController : MonoBehaviour
         Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
         myRigidBody.velocity = playerVelocity;
 
-        // Saying if player is moving x or y direction to allow walk animation to happen
-        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x)  > Mathf.Epsilon;
-        bool playerHasVerticalSpeed = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
-        playerAnimator.SetBool("isWalking", playerHasHorizontalSpeed || playerHasVerticalSpeed);
+        PlayerRunAnimation();
      
 
 
+    }
+
+
+    private void PlayerRunAnimation()
+    {
+        // Saying if player is moving x or y direction to allow walk animation to happen
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        bool playerHasVerticalSpeed = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
+        playerAnimator.SetBool("isWalking", playerHasHorizontalSpeed || playerHasVerticalSpeed);
     }
 
     private void WeaponAim()
