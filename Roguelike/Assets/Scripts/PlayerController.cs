@@ -5,7 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Config
+    [Header("Numbers")]
     [SerializeField] float moveSpeed = 6f;
+    [SerializeField] float timeBetweenShots = 0.2f;
+    [SerializeField] float shotCounter;
+
+    [Header("Objects")]
     [SerializeField] Transform gunArm;
     [SerializeField] Animator playerAnimator;
     [SerializeField] GameObject bulletToFire;
@@ -19,20 +24,24 @@ public class PlayerController : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
+
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         theCam = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Run();
         WeaponAim();
         FireBullet();
     }
+
+
+
+
 
     private void Run()
     {
@@ -87,7 +96,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
 
             Instantiate(bulletToFire, firePoint.transform.position, firePoint.rotation);
+            shotCounter = timeBetweenShots;
 
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            shotCounter -= Time.deltaTime;
+
+            if(shotCounter <= 0)
+            {
+                Instantiate(bulletToFire, firePoint.transform.position, firePoint.rotation);
+                shotCounter = timeBetweenShots;
+            }
         }
     }
 }

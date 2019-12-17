@@ -403,6 +403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
+  timeBetweenShots: 0.2
+  shotCounter: 0
   gunArm: {fileID: 1365844106}
   playerAnimator: {fileID: 777603667}
   bulletToFire: {fileID: 3707839623173914652, guid: c53c6394084d284499f3fb783d23aceb,
