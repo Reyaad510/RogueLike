@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Breakables : MonoBehaviour
 {
+    [SerializeField] GameObject[] brokenPart;
+    [SerializeField] int maxParts = 5;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,18 @@ public class Breakables : MonoBehaviour
             if (PlayerController.instance.dashCounter > 0)
             {
                 Destroy(gameObject);
+
+
+                // Loop through random amount to determine when break box will show a certain amount of broken box parts
+                int partsToDrop = Random.Range(1, maxParts);
+              
+                for(int i = 0; i < partsToDrop; i++)
+                {
+                    int randomBrokenPart = Random.Range(0, brokenPart.Length);
+                    Instantiate(brokenPart[randomBrokenPart], transform.position, transform.rotation);
+                }
+
+                
             }
         }
     }

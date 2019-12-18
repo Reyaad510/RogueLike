@@ -14,12 +14,16 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float shootRange;
     private float fireCounter;
 
+
+
+
     [Header("Objects")]
     [SerializeField] GameObject[] deathSplatter;
     [SerializeField] GameObject hitEffect;
     [SerializeField] GameObject enemyBullet;
     [SerializeField] Transform firePoint;
     [SerializeField] SpriteRenderer enemyBody;
+
 
     [Header("Boolean")]
     [SerializeField] bool shouldShoot;
