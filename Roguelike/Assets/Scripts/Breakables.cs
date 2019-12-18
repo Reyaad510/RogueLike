@@ -12,6 +12,8 @@ public class Breakables : MonoBehaviour
     public bool shouldDropItem;
     [SerializeField] GameObject[] itemsToDrop;
     [SerializeField] float itemDropPercent;
+    [Header("SFX Index Number")]
+    [SerializeField] int breakSound;
 
 
     // Start is called before the first frame update
@@ -34,7 +36,7 @@ public class Breakables : MonoBehaviour
             if (PlayerController.instance.dashCounter > 0)
             {
                 Destroy(gameObject);
-
+                AudioManager.instance.PlaySFX(breakSound);
 
                 // Loop through random amount to determine when break box will show a certain amount of broken box parts
                 // Show broken parts

@@ -131,6 +131,9 @@ MonoBehaviour:
   enemyHealth: 150
   fireRate: 1
   shootRange: 10
+  enemyDeathSFX: 1
+  enemyTakeDamageSFX: 2
+  enemyBulletSFX: 13
   deathSplatter:
   - {fileID: 8144132975787039595, guid: 12713f7db95177f42b365d557735ef8e, type: 3}
   - {fileID: 7116623598496781043, guid: 03e45ee7ca131854e8dc2a9d7d751d69, type: 3}

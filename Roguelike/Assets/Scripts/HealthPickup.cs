@@ -7,6 +7,9 @@ public class HealthPickup : MonoBehaviour
     [SerializeField] int healAmount = 1;
     [SerializeField] float waitToBeCollected = 0.5f;
 
+    [Header("SFX Index Number")]
+    [SerializeField] int healthPickupSFX;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,7 @@ public class HealthPickup : MonoBehaviour
         if(other.tag == "Player" && waitToBeCollected <= 0)
         {
             PlayerHealthController.instance.HealPlayer(healAmount);
+            AudioManager.instance.PlaySFX(healthPickupSFX);
             Destroy(gameObject);
         }
     }

@@ -8,6 +8,9 @@ public class PlayerBullet : MonoBehaviour
     [SerializeField] float bulletSpeed;
     [SerializeField] int bulletDamage;
 
+    [Header("SFX Index Number")]
+    [SerializeField] int bulletImpactSFX;
+
     [Header("Objects")]
     [SerializeField] GameObject impactEffect;
 
@@ -32,6 +35,8 @@ public class PlayerBullet : MonoBehaviour
         // particle effect will be destroyed by going clicking on it in unity and look for "Stop Action" and choose Destroy
         Instantiate(impactEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+
+        AudioManager.instance.PlaySFX(bulletImpactSFX);
 
 
         if (other.tag == "Enemy")

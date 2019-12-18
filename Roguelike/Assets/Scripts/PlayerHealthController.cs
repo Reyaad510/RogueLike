@@ -12,6 +12,10 @@ public class PlayerHealthController : MonoBehaviour
     [SerializeField] float damageInvincibilityTime = 1f;
     private float invincibilityCount;
 
+    [Header("SFX Index Number")]
+    [SerializeField] int playerDeathSFX;
+    [SerializeField] int playerTakeDamageSFX;
+
 
 
     private void Awake()
@@ -46,6 +50,7 @@ public class PlayerHealthController : MonoBehaviour
         // if invinc count <= 0 then we can take damage
         if (invincibilityCount <= 0)
         {
+            AudioManager.instance.PlaySFX(playerTakeDamageSFX);
             currentHealth--;
             // reset invinc count so we dont take multiple damage fast
             invincibilityCount = damageInvincibilityTime;
@@ -55,9 +60,11 @@ public class PlayerHealthController : MonoBehaviour
 
             if (currentHealth <= 0)
             {
+                AudioManager.instance.PlaySFX(playerDeathSFX);
                 PlayerController.instance.gameObject.SetActive(false);
                 UIController.instance.deathScreen.SetActive(true);
                 AudioManager.instance.PlayGameOver();
+                AudioManager.instance.PlaySFX(playerDeathSFX);
 
             }
             UpdateHealthUI();

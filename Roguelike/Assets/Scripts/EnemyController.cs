@@ -14,6 +14,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float shootRange;
     private float fireCounter;
 
+    [Header("SFX Index Number")]
+    [SerializeField] int enemyDeathSFX;
+    [SerializeField] int enemyTakeDamageSFX;
+    [SerializeField] int enemyBulletSFX;
+
 
 
 
@@ -111,6 +116,7 @@ public class EnemyController : MonoBehaviour
             {
                 fireCounter = fireRate;
                 Instantiate(enemyBullet, firePoint.position, firePoint.rotation);
+                AudioManager.instance.PlaySFX(enemyBulletSFX);
             }
         }
     }
@@ -121,6 +127,7 @@ public class EnemyController : MonoBehaviour
     public void DamageEnemy(int damage)
     {
         enemyHealth -= damage;
+        AudioManager.instance.PlaySFX(enemyTakeDamageSFX);
 
         Instantiate(hitEffect, transform.position, transform.rotation);
 
@@ -134,6 +141,7 @@ public class EnemyController : MonoBehaviour
     private void EnemyDie()
     {
         Destroy(gameObject);
+        AudioManager.instance.PlaySFX(enemyDeathSFX);
 
         int selectedSplatter = Random.Range(0, deathSplatter.Length);
 

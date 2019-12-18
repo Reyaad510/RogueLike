@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 moveInput;
     [SerializeField] float activeMoveSpeed;
 
+    [Header("SFX Index Number")]
+    [SerializeField] int playerDashSFX;
+    [SerializeField] int bulletShotSFX;
+
+
     [Header("Dash")]
     [SerializeField] float dashSpeed = 8f;
     [SerializeField] float dashLength = 0.5f;
@@ -124,6 +129,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
 
             Instantiate(bulletToFire, firePoint.transform.position, firePoint.rotation);
+            AudioManager.instance.PlaySFX(bulletShotSFX);
             shotCounter = timeBetweenShots;
 
         }
@@ -135,6 +141,7 @@ public class PlayerController : MonoBehaviour
             if(shotCounter <= 0)
             {
                 Instantiate(bulletToFire, firePoint.transform.position, firePoint.rotation);
+                AudioManager.instance.PlaySFX(bulletShotSFX);
                 shotCounter = timeBetweenShots;
             }
         }
@@ -147,6 +154,7 @@ public class PlayerController : MonoBehaviour
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 activeMoveSpeed = dashSpeed;
+                AudioManager.instance.PlaySFX(playerDashSFX);
                 dashCounter = dashLength;
                 playerAnimator.SetTrigger("Dash");
                 PlayerHealthController.instance.DashInvincible(dashInvincibility);

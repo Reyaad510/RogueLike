@@ -7,6 +7,9 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] float bulletSpeed;
     private Vector3 bulletDirection;
 
+    [Header("SFX Index Number")]
+    [SerializeField] int bulletImpactSFX;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +34,7 @@ public class EnemyBullet : MonoBehaviour
         }
 
         Destroy(gameObject);
-
+        AudioManager.instance.PlaySFX(bulletImpactSFX);
 
     }
 
