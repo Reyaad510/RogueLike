@@ -6,6 +6,7 @@ public class Breakables : MonoBehaviour
 {
     [SerializeField] GameObject[] brokenPart;
     [SerializeField] int maxParts = 5;
+    [SerializeField] int minParts = 2;
 
 
     // Start is called before the first frame update
@@ -31,7 +32,7 @@ public class Breakables : MonoBehaviour
 
 
                 // Loop through random amount to determine when break box will show a certain amount of broken box parts
-                int partsToDrop = Random.Range(1, maxParts);
+                int partsToDrop = Random.Range(minParts, maxParts);
               
                 for(int i = 0; i < partsToDrop; i++)
                 {
