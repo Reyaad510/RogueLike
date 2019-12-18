@@ -9,21 +9,33 @@ public class CameraController : MonoBehaviour
     public float moveSpeed;
 
     [Header("Objects")]
-    public Transform target;
+    public Transform room;
+
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
+    
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        if (room != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, target.position.y, transform.position.z), moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(room.position.x, room.position.y, transform.position.z), moveSpeed * Time.deltaTime);
         }
+    }
+
+    public void ChangeRoom(Transform newRoom)
+    {
+        room = newRoom;
     }
 
 
