@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5015831815164712185}
   - component: {fileID: 5015831815164712166}
   - component: {fileID: 114544627623634316}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Breakable Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,6 +108,7 @@ MonoBehaviour:
   - {fileID: 1463272058601988812, guid: d3855e179b0310d45a317d4f286f0863, type: 3}
   - {fileID: 3766929408702281492, guid: cadefe3376e6e164b962f6fdeb6a6e25, type: 3}
   itemDropPercent: 25
+  breakSound: 0
 --- !u!61 &5015831815164712166
 BoxCollider2D:
   m_ObjectHideFlags: 0
