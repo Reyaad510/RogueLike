@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool doorCloseWhenEnter;
+    public GameObject[] doors;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -22,6 +16,13 @@ public class Room : MonoBehaviour
         if (other.tag == "Player")
         {
             CameraController.instance.ChangeRoom(transform);
+
+            if (doorCloseWhenEnter)
+            {
+                foreach (GameObject door in doors){
+                    door.SetActive(true);
+                }
+            }
         }
     }
 }
