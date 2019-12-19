@@ -12922,7 +12922,7 @@ PrefabInstance:
     - target: {fileID: 1535793473128336548, guid: a9ba1a5b8a7509748b2ef29dc41d205e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1535793473128336549, guid: a9ba1a5b8a7509748b2ef29dc41d205e,
         type: 3}
@@ -13888,6 +13888,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 828601370}
     m_Modifications:
+    - target: {fileID: 114314396816955928, guid: 91e747f9f16c9fc4d844693bb87b28d8,
+        type: 3}
+      propertyPath: levelToLoad
+      value: Victory Screen
+      objectReference: {fileID: 0}
     - target: {fileID: 7324971233724783653, guid: 91e747f9f16c9fc4d844693bb87b28d8,
         type: 3}
       propertyPath: m_Name
