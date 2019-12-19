@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
     public GameObject deathScreen;
 
     public string newGameScene, mainMenuScene;
+    public GameObject pauseMenu;
 
     [Header("Fade")]
     public Image fadeScreen;
@@ -73,14 +74,21 @@ public class UIController : MonoBehaviour
 
     public void NewGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(newGameScene);
     }
 
     public void ReturnToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuScene);
     }
 
+
+    public void Resume()
+    {
+        LevelManager.instance.PauseOrUnpause();
+    }
 
 
 
