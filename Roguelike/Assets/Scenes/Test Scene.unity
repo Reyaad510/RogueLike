@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 875682177484170822, guid: dc00ebaf60a158446a90ba8ee5565354,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.40677822
+      value: 17.07
       objectReference: {fileID: 0}
     - target: {fileID: 875682177484170822, guid: dc00ebaf60a158446a90ba8ee5565354,
         type: 3}
@@ -12880,7 +12880,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitToLoad: 4
-  nextLevel: Test Scene 2
 --- !u!1001 &4853145595886752671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13815,6 +13814,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324971233724783832, guid: 91e747f9f16c9fc4d844693bb87b28d8,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.09874344
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324971233724783832, guid: 91e747f9f16c9fc4d844693bb87b28d8,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9865341
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324971233724783832, guid: 91e747f9f16c9fc4d844693bb87b28d8,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.019748777
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324971233724783832, guid: 91e747f9f16c9fc4d844693bb87b28d8,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.2235184
       objectReference: {fileID: 0}
     - target: {fileID: 7324971233724783834, guid: 91e747f9f16c9fc4d844693bb87b28d8,
         type: 3}

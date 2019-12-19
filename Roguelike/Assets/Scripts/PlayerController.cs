@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform firePoint;
     public SpriteRenderer bodySpriteRenderer;
 
+    [HideInInspector]
+    public bool canMove = true;
+
 
 
     // cached component references
@@ -60,10 +63,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Run();
-        WeaponAim();
-        FireBullet();
-        Dash();
+        if (canMove)
+        {
+            Run();
+            WeaponAim();
+            FireBullet();
+            Dash();
+        }
+        else
+        {
+            CantMove();
+        }
     }
 
 
@@ -177,5 +187,11 @@ public class PlayerController : MonoBehaviour
             dashCoolCounter -= Time.deltaTime;
         }
 
+    }
+
+    private void CantMove()
+    {
+        myRigidBody.velocity = Vector2.zero;
+        playerAnimator.SetBool("isWalking", false);
     }
 }
