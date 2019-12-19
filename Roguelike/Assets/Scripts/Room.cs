@@ -17,6 +17,7 @@ public class Room : MonoBehaviour
     public List<GameObject> enemies = new List<GameObject>();
 
 
+
     private void Update()
     {
         // Loop through room and check enemy at each indexes
@@ -57,6 +58,7 @@ public class Room : MonoBehaviour
                     door.SetActive(true);
                 }
             }
+
 
             _roomActive = true;
         }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7324971233724783835}
   - component: {fileID: 7324971233724783832}
   - component: {fileID: 114314396816955928}
+  - component: {fileID: 95443903363101708}
   m_Layer: 0
   m_Name: Level Exit
   m_TagString: Untagged
@@ -121,6 +122,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: Test Scene 2
+--- !u!95 &95443903363101708
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324971233724783653}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76427387ea288d94187dda95fd4625dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7324971234648835962
 GameObject:
   m_ObjectHideFlags: 0

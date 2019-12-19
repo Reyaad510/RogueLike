@@ -49,6 +49,9 @@ TagManager:
   - name: Objects
     uniqueID: 1022627311
     locked: 0
+  - name: Particles
+    uniqueID: 1386986499
+    locked: 0
   - name: Pickups
     uniqueID: 2506939649
     locked: 0
