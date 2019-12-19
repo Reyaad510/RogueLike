@@ -12249,6 +12249,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1535793472898724660, guid: a9ba1a5b8a7509748b2ef29dc41d205e,
+        type: 3}
+      propertyPath: newGameScene
+      value: Test Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535793472898724660, guid: a9ba1a5b8a7509748b2ef29dc41d205e,
+        type: 3}
+      propertyPath: mainMenuScene
+      value: Title Scene
+      objectReference: {fileID: 0}
     - target: {fileID: 1535793472898724663, guid: a9ba1a5b8a7509748b2ef29dc41d205e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12359,6 +12369,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1535793473128336548, guid: a9ba1a5b8a7509748b2ef29dc41d205e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535793473128336549, guid: a9ba1a5b8a7509748b2ef29dc41d205e,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1535793473373542764, guid: a9ba1a5b8a7509748b2ef29dc41d205e,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -12367,6 +12387,11 @@ PrefabInstance:
     - target: {fileID: 1535793473373542764, guid: a9ba1a5b8a7509748b2ef29dc41d205e,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535793473602653620, guid: a9ba1a5b8a7509748b2ef29dc41d205e,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

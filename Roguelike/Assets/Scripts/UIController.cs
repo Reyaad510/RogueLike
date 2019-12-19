@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class UIController : MonoBehaviour
     public Slider healthSlider;
     public Text healthText;
     public GameObject deathScreen;
+
+    public string newGameScene, mainMenuScene;
 
     [Header("Fade")]
     public Image fadeScreen;
@@ -66,6 +69,16 @@ public class UIController : MonoBehaviour
     {
         _fadeToBlack = true;
         _fadeOutBlack = false;
+    }
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene(newGameScene);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuScene);
     }
 
 
