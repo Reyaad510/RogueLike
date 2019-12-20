@@ -172,11 +172,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToEnd: 10
+  xOffSet: 17
+  yOffSet: 10
   startColor: {r: 0, g: 0.9436171, b: 1, a: 1}
   endColor: {r: 1, g: 0, b: 0, a: 1}
   layoutRoom: {fileID: 7307367230655975481, guid: 5d1755e4a6ca12948afdb95daf3691ae,
     type: 3}
   generatorPoint: {fileID: 1041255546}
+  selectedDirection: 0
+  whatIsRoom:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!4 &1341233404
 Transform:
   m_ObjectHideFlags: 0
