@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelGenerator : MonoBehaviour
 {
 
+
     [SerializeField] int distanceToEnd;
     [SerializeField] float xOffSet = 17f;
     [SerializeField] float yOffSet = 10f;
@@ -21,6 +22,8 @@ public class LevelGenerator : MonoBehaviour
     // When we add a room will add to new list
     private List<GameObject> layoutRoomObjects = new List<GameObject>();
 
+
+
     // creating a type of variable called Direction
     // The names associated with numbers like an array(hover over them to see)
     public enum Direction { up, right, down, left };
@@ -30,6 +33,8 @@ public class LevelGenerator : MonoBehaviour
 
     // layermask used in unity to choose roomlayout
     public LayerMask whatIsRoom;
+
+    public RoomPrefabs rooms;
 
 
 
@@ -126,4 +131,15 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
+}
+
+
+
+[System.Serializable]
+public class RoomPrefabs
+{
+    public GameObject singleUp, singleDown, singleRight, singleLeft,
+        doubleUpDown, doubleLeftRight, doubleUpRight, doubleRightDown, doubleDownLeft, doubleLeftUp,
+        tripleUpRightDown, tripleRightDownLeft, tripleDownLeftUp, tripleLeftUpRight,
+        fourway;
 }
