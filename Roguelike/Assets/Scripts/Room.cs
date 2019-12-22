@@ -6,38 +6,18 @@ public class Room : MonoBehaviour
 {
     // Says if doors close when player enter a room
     public bool doorCloseWhenEnter;
-    // Says if a specific room has this specific clear condition
-   //  public bool openDoorsWhenEnemiesCleared;
 
     // Says if player is in that specific room
     [HideInInspector]
     public bool roomActive;
     public GameObject[] doors;
 
-    // public List<GameObject> enemies = new List<GameObject>();
+
 
 
     private void Update()
     {
-        // Loop through room and check enemy at each indexes
-        // When enemy killed will be removed 
-       /* if(enemies.Count > 0 && roomActive && openDoorsWhenEnemiesCleared)
-        {
-            for(var i = 0; i < enemies.Count; i++)
-            {
-                if(enemies[i] == null)
-                {
-                    // i-- to prevent error
-                    enemies.RemoveAt(i);
-                    i--;
-                }
-            }
-            
-            if(enemies.Count == 0)
-            {
-                OpenDoors();
-            }
-        } */
+
     }
 
 

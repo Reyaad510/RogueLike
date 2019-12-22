@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce054e492dc1424db083da4c6bfea4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openDoorsWhenEnemiesCleared: 1
+  openDoorsWhenEnemiesCleared: 0
   enemies: []
   theRoom: {fileID: 0}
 --- !u!1 &4246200409659000422

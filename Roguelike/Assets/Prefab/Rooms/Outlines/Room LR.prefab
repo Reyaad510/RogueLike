@@ -1239,12 +1239,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23bfa846cacc3314aa67d7263dabd2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorCloseWhenEnter: 1
-  openDoorsWhenEnemiesCleared: 0
+  doorCloseWhenEnter: 0
+  roomActive: 0
   doors:
   - {fileID: 3549470012248783511}
   - {fileID: 3549470012335046205}
-  enemies: []
 --- !u!1 &3549470013650138722
 GameObject:
   m_ObjectHideFlags: 0

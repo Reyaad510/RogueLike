@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23bfa846cacc3314aa67d7263dabd2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorCloseWhenEnter: 1
+  doorCloseWhenEnter: 0
   roomActive: 0
   doors:
   - {fileID: 7689161745922792653}
