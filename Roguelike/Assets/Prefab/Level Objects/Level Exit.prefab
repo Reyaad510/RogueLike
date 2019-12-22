@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7da93058f4c8f6448018eb193c3c3a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Test Scene 2
+  levelToLoad: Victory Screen
 --- !u!95 &95443903363101708
 Animator:
   serializedVersion: 3
