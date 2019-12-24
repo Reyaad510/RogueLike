@@ -7,12 +7,16 @@ public class EnemyController : MonoBehaviour
 
     [Header("Enemy Numbers")]
     [SerializeField] float enemyMoveSpeed;
+    [SerializeField] bool shouldChasePlayer;
     [SerializeField] float rangeToChasePlayer;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] int enemyHealth = 150;
     [SerializeField] float fireRate;
     [SerializeField] float shootRange;
     private float fireCounter;
+
+    [SerializeField] bool shouldRunAway;
+    [SerializeField] float runAwayRange;
 
     [Header("SFX Index Number")]
     [SerializeField] int enemyDeathSFX;
@@ -66,21 +70,24 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyChaseIfPlayerInRange()
     {
+
+        moveDirection = Vector3.zero;
+
         // Distance return distance between two points
         // checking if player in range on enemy
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChasePlayer)
+        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChasePlayer && shouldChasePlayer)
         {
             // if in range then enemy will chase player
             moveDirection = PlayerController.instance.transform.position - transform.position;
         }
-        else
+
+        if (shouldRunAway && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < runAwayRange)
         {
-            // This means Vector3(0,0,0) and means when player out of range then enemy movement will be 0
-            moveDirection = Vector3.zero;
+            moveDirection = transform.position - PlayerController.instance.transform.position;
         }
 
-        // used to make enemy diagonal movement speed not super fast. Will be same as x or y
-        moveDirection.Normalize();
+            // used to make enemy diagonal movement speed not super fast. Will be same as x or y
+            moveDirection.Normalize();
 
         enemyRigidBody.velocity = moveDirection * enemyMoveSpeed;
 
