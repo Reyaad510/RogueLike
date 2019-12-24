@@ -7,16 +7,18 @@ public class EnemyController : MonoBehaviour
 
     [Header("Enemy Numbers")]
     [SerializeField] float enemyMoveSpeed;
-    [SerializeField] bool shouldChasePlayer;
     [SerializeField] float rangeToChasePlayer;
     [SerializeField] Vector3 moveDirection;
     [SerializeField] int enemyHealth = 150;
     [SerializeField] float fireRate;
     [SerializeField] float shootRange;
     private float fireCounter;
-
-    [SerializeField] bool shouldRunAway;
     [SerializeField] float runAwayRange;
+
+    [Header("Wandering")]
+    [SerializeField] float wanderLength, pauseLength;
+    [SerializeField] private float wanderCounter, pauseCounter;
+    [SerializeField] private Vector3 wanderDirection;
 
     [Header("SFX Index Number")]
     [SerializeField] int enemyDeathSFX;
@@ -36,6 +38,9 @@ public class EnemyController : MonoBehaviour
 
     [Header("Boolean")]
     [SerializeField] bool shouldShoot;
+    [SerializeField] bool shouldChasePlayer;
+    [SerializeField] bool shouldRunAway;
+    [SerializeField] bool shouldWander;
 
 
     // cache
@@ -49,6 +54,12 @@ public class EnemyController : MonoBehaviour
     {
         enemyRigidBody = GetComponent<Rigidbody2D>();
         enemyAnimator = GetComponent<Animator>();
+
+        // Make this bcuz if have couple guys they will move at diff times
+        if (shouldWander)
+        {
+            pauseCounter = Random.Range(pauseLength * 0.75f, pauseLength * 1.25f);
+        }
     }
 
   
@@ -80,11 +91,12 @@ public class EnemyController : MonoBehaviour
             // if in range then enemy will chase player
             moveDirection = PlayerController.instance.transform.position - transform.position;
         }
-
-        if (shouldRunAway && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < runAwayRange)
+        else
         {
-            moveDirection = transform.position - PlayerController.instance.transform.position;
+            EnemyWander();
         }
+
+        EnemyRunAway();
 
             // used to make enemy diagonal movement speed not super fast. Will be same as x or y
             moveDirection.Normalize();
@@ -95,6 +107,48 @@ public class EnemyController : MonoBehaviour
         EnemyChaseAnimation();
 
 
+    }
+
+    private void EnemyWander()
+    {
+        if (shouldWander)
+        {
+            if (wanderCounter > 0)
+            {
+                wanderCounter -= Time.deltaTime;
+
+                // move the enemy
+                moveDirection = wanderDirection;
+
+            if (wanderCounter <= 0)
+                {
+                    pauseCounter = Random.Range(pauseLength * 0.75f, pauseLength * 1.25f);
+                }
+            }
+
+            if (pauseCounter > 0)
+            {
+                pauseCounter -= Time.deltaTime;
+
+                if(pauseCounter <= 0)
+                {
+                    wanderCounter = Random.Range(wanderLength * 0.75f, wanderLength * 1.25f);
+                    wanderDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
+                }
+            }
+        }
+    }
+
+
+   
+
+
+    private void EnemyRunAway()
+    {
+        if (shouldRunAway && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < runAwayRange)
+        {
+            moveDirection = transform.position - PlayerController.instance.transform.position;
+        }
     }
 
 

@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 
     // When player hits object that damages player will trigger damage them
