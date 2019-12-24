@@ -7,18 +7,44 @@ public class EnemyController : MonoBehaviour
 
     [Header("Enemy Numbers")]
     [SerializeField] float enemyMoveSpeed;
-    [SerializeField] float rangeToChasePlayer;
-    [SerializeField] Vector3 moveDirection;
     [SerializeField] int enemyHealth = 150;
+
+
+    [Header("Shooting")]
+    [SerializeField] GameObject hitEffect;
+    [SerializeField] GameObject enemyBullet;
+    [SerializeField] Transform firePoint;
+    [SerializeField] bool shouldShoot;
     [SerializeField] float fireRate;
     [SerializeField] float shootRange;
     private float fireCounter;
+
+    [Header("Chase")]
+    [SerializeField] float rangeToChasePlayer;
+    [SerializeField] private Vector3 moveDirection;
+    [SerializeField] bool shouldChasePlayer;
+
+    [Header("Run Away")]
     [SerializeField] float runAwayRange;
+    [SerializeField] bool shouldRunAway;
+
 
     [Header("Wandering")]
     [SerializeField] float wanderLength, pauseLength;
     [SerializeField] private float wanderCounter, pauseCounter;
     [SerializeField] private Vector3 wanderDirection;
+    [SerializeField] bool shouldWander;
+
+
+    [Header("Patrol")]
+    [SerializeField] Transform[] patrolPoints;
+    [SerializeField] bool shouldPatrol;
+    [SerializeField] private int currentPatrolPoint;
+
+
+    [Header("Objects")]
+    [SerializeField] GameObject[] deathSplatter;
+    [SerializeField] SpriteRenderer enemyBody;
 
     [Header("SFX Index Number")]
     [SerializeField] int enemyDeathSFX;
@@ -28,19 +54,7 @@ public class EnemyController : MonoBehaviour
 
 
 
-    [Header("Objects")]
-    [SerializeField] GameObject[] deathSplatter;
-    [SerializeField] GameObject hitEffect;
-    [SerializeField] GameObject enemyBullet;
-    [SerializeField] Transform firePoint;
-    [SerializeField] SpriteRenderer enemyBody;
 
-
-    [Header("Boolean")]
-    [SerializeField] bool shouldShoot;
-    [SerializeField] bool shouldChasePlayer;
-    [SerializeField] bool shouldRunAway;
-    [SerializeField] bool shouldWander;
 
 
     // cache
@@ -94,6 +108,20 @@ public class EnemyController : MonoBehaviour
         else
         {
             EnemyWander();
+            if(shouldPatrol)
+            {
+                // move towards patrol point
+                moveDirection = patrolPoints[currentPatrolPoint].position - transform.position;
+
+                if(Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position) < 0.2f)
+                {
+                    currentPatrolPoint++;
+                    if(currentPatrolPoint >= patrolPoints.Length)
+                    {
+                        currentPatrolPoint = 0;
+                    }
+                }
+            }
         }
 
         EnemyRunAway();
