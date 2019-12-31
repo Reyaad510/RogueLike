@@ -51,6 +51,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] int enemyTakeDamageSFX;
     [SerializeField] int enemyBulletSFX;
 
+    public bool shouldDropItem;
+    [SerializeField] GameObject[] itemsToDrop;
+    [SerializeField] float itemDropPercent;
+
 
 
 
@@ -238,7 +242,29 @@ public class EnemyController : MonoBehaviour
 
         var splat = Instantiate(deathSplatter[selectedSplatter], transform.position, Quaternion.Euler(0f,0f, rotation * 90f));
         Destroy(splat, 2f);
-        
+
+        // drop items
+        if (shouldDropItem)
+        {
+            EnemyDropItem();
+
+        }
+
+    }
+
+
+    private void EnemyDropItem()
+    {
+        // float random range INCLUDES abilitiy to get top number. If were int it would NOT
+        float dropChance = Random.Range(0f, 100f);
+
+        // will drop item
+        if (dropChance < itemDropPercent)
+        {
+            // giving list of items to randomly drop
+            int randomItem = Random.Range(0, itemsToDrop.Length);
+            Instantiate(itemsToDrop[randomItem], transform.position, transform.rotation);
+        }
     }
 
 

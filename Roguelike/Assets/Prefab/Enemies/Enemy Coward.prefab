@@ -175,29 +175,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMoveSpeed: 3
-  shouldChasePlayer: 0
-  rangeToChasePlayer: 7
-  moveDirection: {x: 0, y: 0, z: 0}
   enemyHealth: 150
-  fireRate: 1
-  shootRange: 10
-  shouldRunAway: 1
-  runAwayRange: 7
-  enemyDeathSFX: 1
-  enemyTakeDamageSFX: 2
-  enemyBulletSFX: 13
-  deathSplatter:
-  - {fileID: 8144132975787039595, guid: 12713f7db95177f42b365d557735ef8e, type: 3}
-  - {fileID: 7116623598496781043, guid: 03e45ee7ca131854e8dc2a9d7d751d69, type: 3}
-  - {fileID: 2339835108423375622, guid: 43bbd2f532413734aafd4756435b8e82, type: 3}
-  - {fileID: 4939588399143310325, guid: 23b6647f9afa3cb4c895cb85a35029d3, type: 3}
   hitEffect: {fileID: 2150550041400740670, guid: c7996317ca32be64c924bcbec9dd9be7,
     type: 3}
   enemyBullet: {fileID: 1635006067943885957, guid: fb6f8a12ad683a246b3b096a5eb16880,
     type: 3}
   firePoint: {fileID: 6721628690034792601}
-  enemyBody: {fileID: 2022945005193501885}
   shouldShoot: 1
+  fireRate: 1
+  shootRange: 10
+  rangeToChasePlayer: 7
+  moveDirection: {x: 0, y: 0, z: 0}
+  shouldChasePlayer: 0
+  runAwayRange: 7
+  shouldRunAway: 1
+  wanderLength: 0
+  pauseLength: 0
+  wanderCounter: 0
+  pauseCounter: 0
+  wanderDirection: {x: 0, y: 0, z: 0}
+  shouldWander: 0
+  patrolPoints: []
+  shouldPatrol: 0
+  currentPatrolPoint: 0
+  deathSplatter:
+  - {fileID: 8144132975787039595, guid: 12713f7db95177f42b365d557735ef8e, type: 3}
+  - {fileID: 7116623598496781043, guid: 03e45ee7ca131854e8dc2a9d7d751d69, type: 3}
+  - {fileID: 2339835108423375622, guid: 43bbd2f532413734aafd4756435b8e82, type: 3}
+  - {fileID: 4939588399143310325, guid: 23b6647f9afa3cb4c895cb85a35029d3, type: 3}
+  enemyBody: {fileID: 2022945005193501885}
+  enemyDeathSFX: 1
+  enemyTakeDamageSFX: 2
+  enemyBulletSFX: 13
+  shouldDropItem: 1
+  itemsToDrop:
+  - {fileID: 4439171097380126134, guid: fc83e616acf1a0f48b7b1584b8661a1f, type: 3}
+  itemDropPercent: 25
 --- !u!95 &2022945005662119102
 Animator:
   serializedVersion: 3
