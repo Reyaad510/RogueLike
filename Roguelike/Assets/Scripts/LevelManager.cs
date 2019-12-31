@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
     public float waitToLoad = 2f;
     public bool isPaused;
+    [SerializeField] int currentCoins;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        UIController.instance.coinText.text = currentCoins.ToString();
     }
 
 
@@ -54,6 +56,23 @@ public class LevelManager : MonoBehaviour
             isPaused = false;
             Time.timeScale = 1f;
         }
+    }
+
+    public void AddCoins(int amount)
+    {
+        currentCoins += amount;
+        UIController.instance.coinText.text = currentCoins.ToString();
+    }
+
+    public void SpendCoins(int amount)
+    {
+        currentCoins -= amount;
+        if(currentCoins <= 0)
+        {
+            currentCoins = 0;
+        }
+
+        UIController.instance.coinText.text = currentCoins.ToString();
     }
 
 }
