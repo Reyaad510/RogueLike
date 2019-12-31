@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
     public float waitToLoad = 2f;
     public bool isPaused;
-    [SerializeField] int currentCoins;
+    public int currentCoins;
 
     private void Awake()
     {

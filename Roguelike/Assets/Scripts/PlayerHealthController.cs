@@ -8,7 +8,7 @@ public class PlayerHealthController : MonoBehaviour
     public static PlayerHealthController instance;
 
     [SerializeField] int currentHealth;
-    [SerializeField] int maxHealth;
+    public int maxHealth;
     [SerializeField] float damageInvincibilityTime = 1f;
     private float invincibilityCount;
 
