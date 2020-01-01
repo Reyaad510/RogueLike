@@ -77,8 +77,12 @@ MonoBehaviour:
   distanceToEnd: 10
   xOffSet: 17
   yOffSet: 10
+  includeShop: 1
+  minDistanceToShop: 3
+  maxDistanceToShop: 7
   startColor: {r: 0, g: 0.9436171, b: 1, a: 1}
   endColor: {r: 1, g: 0, b: 0, a: 1}
+  shopColor: {r: 1, g: 0.92156863, b: 0, a: 0}
   layoutRoom: {fileID: 7307367230655975481, guid: 5d1755e4a6ca12948afdb95daf3691ae,
     type: 3}
   generatorPoint: {fileID: 585348526010482259}
@@ -121,6 +125,9 @@ MonoBehaviour:
     type: 3}
   centerEnd: {fileID: 4246200409510771220, guid: dfc4cfb1b8f9c594793a22180dc6e1fa,
     type: 3}
+  centerShop: {fileID: 4586818929983574848, guid: a8458629c8a1f884ea658cec613240c4,
+    type: 3}
   potentialCenters:
   - {fileID: 3666643636545540226, guid: 025c7fc891bd2424092276549be7c062, type: 3}
   - {fileID: 2886273203896328440, guid: abd2a1b31b43282418a945a4671a620d, type: 3}
+  - {fileID: 3354634802497614392, guid: 41e2cd03ae4891d459c04031dfe267b5, type: 3}
