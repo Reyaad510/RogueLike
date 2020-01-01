@@ -7,6 +7,7 @@ public class ShopItem : MonoBehaviour
 
     [SerializeField] GameObject buyMessage;
     [SerializeField] int itemCost;
+    [SerializeField] int healthUpgradeAmount = 1;
 
     private bool inBuyZone;
     [SerializeField] bool isHealthRestore, isHealthUpgrade, isWeapon;
@@ -34,6 +35,20 @@ public class ShopItem : MonoBehaviour
                     {
                         PlayerHealthController.instance.HealPlayer(PlayerHealthController.instance.maxHealth);
                     }
+                    if (isHealthUpgrade)
+                    {
+                        PlayerHealthController.instance.IncreaseMaxHealth(healthUpgradeAmount);
+                    }
+
+
+                    // after buy makes it invis and makes sure they cant buy again
+                    gameObject.SetActive(false);
+                    inBuyZone = false;
+                    AudioManager.instance.PlaySFX(18);
+                }
+                else
+                {
+                    AudioManager.instance.PlaySFX(19);
                 }
             }
         }
