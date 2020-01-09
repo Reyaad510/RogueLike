@@ -62,6 +62,7 @@ public class CameraController : MonoBehaviour
             PlayerController.instance.canMove = false;
             Time.timeScale = 0;
             UIController.instance.mapDisplay.SetActive(false);
+            UIController.instance.bigMapText.SetActive(true);
         }
     }
     
@@ -78,6 +79,7 @@ public class CameraController : MonoBehaviour
             PlayerController.instance.canMove = true;
             Time.timeScale = 1f;
             UIController.instance.mapDisplay.SetActive(true);
+            UIController.instance.bigMapText.SetActive(false);
         }
     }
 
