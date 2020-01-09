@@ -11,6 +11,7 @@ public class Room : MonoBehaviour
     [HideInInspector]
     public bool roomActive;
     public GameObject[] doors;
+    [SerializeField] GameObject mapHider;
 
 
 
@@ -46,6 +47,8 @@ public class Room : MonoBehaviour
 
 
             roomActive = true;
+
+            mapHider.SetActive(false);
         }
     }
 
