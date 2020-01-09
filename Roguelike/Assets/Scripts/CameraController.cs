@@ -11,6 +11,10 @@ public class CameraController : MonoBehaviour
     [Header("Objects")]
     public Transform room;
 
+    public Camera mainCamera, bigMapCamera;
+
+    private bool bigMapActive;
+
 
 
     private void Awake()
@@ -26,11 +30,55 @@ public class CameraController : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(room.position.x, room.position.y, transform.position.z), moveSpeed * Time.deltaTime);
         }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (!bigMapActive)
+            {
+                ActivateBigMap();
+            } else
+            {
+                DeactivateBigMap();
+            }
+
+        }
     }
 
     public void ChangeRoom(Transform newRoom)
     {
         room = newRoom;
+    }
+
+
+    private void ActivateBigMap()
+    {
+        if (!LevelManager.instance.isPaused)
+        {
+
+
+            bigMapActive = true;
+            bigMapCamera.enabled = true;
+            mainCamera.enabled = false;
+
+            PlayerController.instance.canMove = false;
+            Time.timeScale = 0;
+            UIController.instance.mapDisplay.SetActive(false);
+        }
+    }
+    
+    private void DeactivateBigMap()
+    {
+        if (!LevelManager.instance.isPaused)
+        {
+
+
+            bigMapActive = false;
+            bigMapCamera.enabled = false;
+            mainCamera.enabled = true;
+
+            PlayerController.instance.canMove = true;
+            Time.timeScale = 1f;
+            UIController.instance.mapDisplay.SetActive(true);
+        }
     }
 
 

@@ -14,7 +14,7 @@ public class UIController : MonoBehaviour
     public GameObject deathScreen;
 
     public string newGameScene, mainMenuScene;
-    public GameObject pauseMenu;
+    public GameObject pauseMenu, mapDisplay;
 
     [Header("Fade")]
     public Image fadeScreen;
